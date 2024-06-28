@@ -1,6 +1,6 @@
-import homeController from '../controllers/homeController.js'
+const homeController = require('../controllers/homeController.js')
 
-import express from 'express'
+const express = require('express')
 const router = express.Router()
 
 // define the home page route
@@ -10,4 +10,4 @@ const initWebRoute = (app) => {
     return app.use('/', router)
 }
 
-export default initWebRoute
+module.exports = initWebRoute
