@@ -16,6 +16,24 @@ let handleCreateUser = async (req, res) => {
     return res.status(200).json(message)
 }
 
+let handleGetUser = async (req, res) => {
+    let userId = req.query.id
+
+    if (!userId) {
+        return res.status(200).json({
+            errCode: 1,
+            errMessage: 'Missing parameter!'
+        })
+    }
+
+    let message = await userService.getUser(userId)
+
+    return res.status(200).json({
+        message
+    })
+}
+
 module.exports = {
-    handleCreateUser
+    handleCreateUser,
+    handleGetUser
 }

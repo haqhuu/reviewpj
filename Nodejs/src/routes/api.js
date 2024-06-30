@@ -5,7 +5,8 @@ const router = express.Router()
 
 // define the home page route
 const initApi = (app) => {
-    router.post('/api/create-new-user', userController.handleCreateUser)
+    router.post(`/api/create-new-user`, userController.handleCreateUser)
+    router.get(`/api/get-user`, userController.handleGetUser)
 
     return app.use('/', router)
 }
