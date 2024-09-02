@@ -1,0 +1,59 @@
+
+.section-home-header {
+    display: flex;    
+    height: 100px;
+    background: black;
+    color: white;
+    align-items: center;
+    justify-content: center;
+
+    span {
+        margin: 20px;
+    }
+
+    .logo
+    {        
+        text-transform: uppercase;
+    }
+
+    .categories{
+    }
+
+    .blog{
+
+    }
+
+    .login{
+
+    }
+
+    .businesses{
+        background: blue;
+        padding: 10px 20px;
+        border-radius: 20px;    
+    }  
+}
+
+.section-introduce {
+    background: green;
+    display: flex;
+    flex-direction: column;
+
+    .text-introduce {
+        display: block !important;
+    }
+
+
+    .search {
+        display: block !important;
+    }
+
+    .img-introduce {
+        
+        background-image: url(../../public/download.png);
+        height: 100px;
+        background-repeat: no-repeat;
+
+    }
+
+}
