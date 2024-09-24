@@ -1,4 +1,5 @@
 const userController = require('../controllers/userController.js')
+const categoryController = require('../controllers/categoryController.js')
 
 const express = require('express')
 const router = express.Router()
@@ -7,6 +8,8 @@ const router = express.Router()
 const initApi = (app) => {
     router.post(`/api/create-new-user`, userController.handleCreateUser)
     router.get(`/api/get-user`, userController.handleGetUser)
+
+    router.post(`/api/create-category`, categoryController.handleCreateCategory)
 
     return app.use('/', router)
 }

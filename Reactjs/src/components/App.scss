@@ -37,23 +37,125 @@
 .section-introduce {
     background: green;
     display: flex;
-    flex-direction: column;
 
-    .text-introduce {
-        display: block !important;
-    }
-
-
-    .search {
-        display: block !important;
+    .left-content {
+        .text-introduce {
+            display: block !important;
+        }
+        .search {
+            display: block !important;
+        }
     }
 
     .img-introduce {
-        
+        width: 100px;
         background-image: url(../../public/download.png);
         height: 100px;
         background-repeat: no-repeat;
+    }
+}
+
+.recent-review {
+    width: 100%;
+    justify-content: center;
+}
+
+.section-cate {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-left: 400px;
+    margin-right: 400px;
+
+    .cate-item {
+        border: 1px solid red;
+        width: 20%;
+        align-items: center;
+        padding:30px;
+        margin-bottom: 10px;
+        .cate-icon {
+
+        }
+        .cate-name {
+            
+        }
 
     }
+}
 
+.section-review {
+    height:100px;
+    background: green;
+
+    .review-item {
+        
+        display: flex;
+flex-direction: column;
+        border: 1px solid red;
+    }
+}
+
+.section-about {
+    display: flex;
+    height:100px;
+    background: red;
+
+    .left-content {
+        display: flex;
+        flex-direction: column;
+    }
+    .right-content {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.section-story {
+    display: flex;
+    height:100px;
+    background: green;
+
+    .left-content {
+        margin-right: 30px;
+    }
+    .right-content {
+
+    }
+}
+
+.section-footer {
+    height:100px;
+    background: red;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    
+
+    .about-cate {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .community-cate {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .follow-cate {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .country-cate {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+.cate-section {
+    display: flex;
+    // flex-direction: column;
+}
+.col {
+    
 }
