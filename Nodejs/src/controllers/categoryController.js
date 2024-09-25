@@ -24,23 +24,59 @@ let handleCreateCategory = async (req, res) => {
     }
 }
 
-let handleGetUser = async (req, res) => {
-    let userId = req.query.id
+let handleGetCategory = async (req, res) => {
+    try {
+        let cateId = req.query.id
 
-    if (!userId) {
+        if (!cateId) {
+            return res.status(200).json({
+                errCode: 1,
+                errMessage: 'Missing parameter!',
+                category: []
+            })
+        }
+
+        let message = await categoryService.getCategory(cateId)
+
         return res.status(200).json({
-            errCode: 1,
-            errMessage: 'Missing parameter!'
+            message
+        })
+    } catch (e) {
+        return res.status(200).json({
+            errCode: 5,
+            errMessage: e,
+            category: []
+        })
+    }
+}
+
+let handlePutCategory = async (req, res) => {
+    try {
+        let cateId = req.query.id
+
+        if (!cateId) {
+            return res.status(200).json({
+                errCode: 1,
+                errMessage: "Missing parameter!",
+                category: {}
+            })
+        }
+
+        let message = await categoryService.putCategory(cateId)
+
+        return res.status(200).json({
+            message
+        })
+    } catch (e) {
+        return res.status(200).json({
+            message
         })
     }
 
-    let message = await userService.getUser(userId)
-
-    return res.status(200).json({
-        message
-    })
 }
 
 module.exports = {
-    handleCreateCategory
+    handleCreateCategory,
+    handleGetCategory,
+    handlePutCategory
 }

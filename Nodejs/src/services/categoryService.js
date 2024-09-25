@@ -18,12 +18,10 @@ let createNewCategory = (data) => {
                 return resolve(message)
             }
 
-            const newCategory = await db.Category.create({
+
+            await db.Category.create({
                 name: data.name
             });
-
-            await newCategory.save()
-            console.log("=> categoryService.createCategory said: Cate created!")
 
             message = {
                 errCode: 0,
@@ -56,43 +54,36 @@ let isExistName = async (name) => {
         else
             return true
     } catch (error) {
+        console.log(error)
         return false
     }
 }
 
-let getUser = (userId) => {
+let getCategory = (cateId) => {
     return new Promise(async (resolve, reject) => {
         let message = {}
-        let user = []
+        let category = []
         try {
-            if (userId === 'ALL') {
-                user = await db.User.findAll({
-                    attributes: {
-                        exclude: ['password']
-                    },
-                    raw: true
-                })
+            if (cateId === 'ALL') {
+                category = await db.Category.findAll()
             } else {
-                user = await db.User.findOne({
+                category = await db.Category.findOne({
                     where: {
-                        id: userId
-                    },
-                    attributes: {
-                        exclude: ['password']
-                    }, raw: true
+                        id: cateId
+                    }
                 })
             }
-            if (!user) {
+            if (!category) {
                 message = {
                     errCode: 2,
-                    errMessage: `User isn't exist!`,
-                    user: []
+                    errMessage: `Category isn't exist!`,
+                    category: []
                 }
             } else {
                 message = {
                     errCode: 0,
-                    errMessage: `Get user success!`,
-                    user: user
+                    errMessage: `Get category success!`,
+                    category: category
                 }
             }
 
@@ -101,7 +92,7 @@ let getUser = (userId) => {
             message = {
                 errCode: 0,
                 errMessage: error.message,
-                user: []
+                category: []
             }
 
             return reject(message)
@@ -109,6 +100,48 @@ let getUser = (userId) => {
     })
 }
 
+let putCategory = (cateId) => {
+    return new Promise(async (resolve, reject) => {
+
+        try {
+            let message = {}
+            let cate = await db.Category.findOne({
+                where: {
+                    id: cateId
+                }
+            })
+
+            if (!cate) {
+                message = {
+                    errCode: 2,
+                    errMessage: "Category is not exist!",
+                    category: {}
+                }
+                return resolve(message)
+            } else {
+                message = {
+                    errCode: 0,
+                    errMessage: "Category here!",
+                    category: cate
+
+                }
+            }
+            return resolve(message)
+
+
+        } catch (e) {
+            message = {
+                errCode: 10,
+                errMessage: e,
+                category: {}
+            }
+            return reject(message)
+        }
+
+
+    })
+}
+
 module.exports = {
-    createNewCategory, getUser
+    createNewCategory, getCategory, putCategory
 }

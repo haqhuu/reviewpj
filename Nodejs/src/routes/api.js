@@ -10,6 +10,9 @@ const initApi = (app) => {
     router.get(`/api/get-user`, userController.handleGetUser)
 
     router.post(`/api/create-category`, categoryController.handleCreateCategory)
+    router.get(`/api/get-category`, categoryController.handleGetCategory)
+    router.put(`/api/put-category`, categoryController.handlePutCategory)
+
 
     return app.use('/', router)
 }
