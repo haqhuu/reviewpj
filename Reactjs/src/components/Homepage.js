@@ -4,20 +4,39 @@ import './App.scss'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import { useEffect } from 'react';
+import { useState } from 'react';
+
+let initState = {
+    users: [],
+    cates: []
+}
+
 
 
 
 function Homepage() {
+    const [state, setState] = useState(initState);
+    let arrUsers = []
+    let arrCates = []
 
+    let getData = async () => {
+        arrUsers = await getUser("ALL")
+        arrCates = await getCate("ALL")
+    }
 
     useEffect(() => {
-        console.log("MOUNT")
+        let getState = async () => {
+            await getData()
+            setState({
+                users: [...arrUsers],
+                cates: [...arrCates]
+            })
+        }
+        getState()
     }, [])
-
 
     return (
         <>
-
 
             <div className='section-introduce'>
                 <div className='left-content' >
@@ -43,10 +62,12 @@ function Homepage() {
             {/* end introduce */}
             <span className='cate'>Explore categories</span>
             <button className='view-cate'>View All</button>
+
+
             <div className='section-cate'>
                 <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Bank</span>
+                    <span className='cate-icon'>{(state.cates && state.cates[0]) ? state.cates[0].name : "bank"}</span>
+                    <span className='cate-name'>{(state.cates && state.cates[0]) ? state.cates[0].name : "fdfd"}</span>
                 </div>
                 <div className='cate-item'>
                     <span className='cate-icon'>bank</span>
@@ -137,14 +158,22 @@ function Homepage() {
     );
 }
 
-let getUser = async () => {
+let getUser = async (userId) => {
     const response = await axios.get("http://localhost:3001/api/get-user", {
         params: {
-            id: "ALL"
+            id: userId
         }
     })
-    // console.log(response.data.message.user)
-    return response
+    return response.data.message.user
 }
 
-export default Homepage;
+let getCate = async (cateId) => {
+    const res = await axios.get("http://localhost:3001/api/get-category", {
+        params: {
+            id: cateId
+        }
+    })
+    return res.data.message.category
+}
+
+export default Homepage
