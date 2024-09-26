@@ -12,8 +12,6 @@ let initState = {
 }
 
 
-
-
 function Homepage() {
     const [state, setState] = useState(initState);
     let arrUsers = []
@@ -48,10 +46,10 @@ function Homepage() {
                     </div>
 
                     <div className='search'>
-                        <input type='text' placeHolder='Company or category'>
+                        <input name="frm-search" type='text' placeholder='Company or category'>
                         </input>
 
-                        <button >
+                        <button className='btn-search'>
                             Search
                         </button>
                     </div>
@@ -60,65 +58,35 @@ function Homepage() {
                 <div className='img-introduce right-content'></div>
             </div>
             {/* end introduce */}
-            <span className='cate'>Explore categories</span>
-            <button className='view-cate'>View All</button>
 
 
-            <div className='section-cate'>
-                <div className='cate-item'>
-                    <span className='cate-icon'>{(state.cates && state.cates[0]) ? state.cates[0].name : "bank"}</span>
-                    <span className='cate-name'>{(state.cates && state.cates[0]) ? state.cates[0].name : "fdfd"}</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Travel Insurance Company</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Car Dealer</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Furniture Store</span>
-                </div>
 
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Bank</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Travel Insurance Company</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Car Dealer</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Furniture Store</span>
-                </div>
+            {/* start category section */}
+            <div className='section-cate1'>
+                <span className='cate'>Explore categories</span>
+                <button className='view-cate'>View All</button>
 
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Bank</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Travel Insurance Company</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Car Dealer</span>
-                </div>
-                <div className='cate-item'>
-                    <span className='cate-icon'>bank</span>
-                    <span className='cate-name'>Furniture Store</span>
+                <div className='section-cate2'>
+                    {
+                        state.cates.map((item, index) => {
+                            if (index < 12)
+                                return (
+                                    <div className='cate-item'>
+                                        <span className='cate-icon' key={index}>{(item) ? item.name : ""}</span>
+                                        <span className='cate-name' kety={index}>{(item) ? item.name : ""}</span>
+                                    </div>
+                                )
+                        })
+                    }
+
+
                 </div>
             </div>
             {/* end section cate */}
-            <span className='recent-review'>Recent Review</span>
+
+
             <div className='section-review'>
+                <span className='recent-review'>Recent Review</span>
                 <div className='review-item' >
                     <span className='name'>David</span>
                     <span className='title'>David to CPPPP</span>
@@ -126,6 +94,7 @@ function Homepage() {
                 </div>
             </div>
             {/* end section review */}
+
             <div className='section-about'>
                 <div className='left-content' >
                     <span className='title'>Be heard</span>
