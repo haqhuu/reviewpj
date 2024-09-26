@@ -2,10 +2,22 @@ import logo from './logo.svg';
 import './App.css';
 import './App.scss'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { useEffect } from 'react';
+
+
 
 function Homepage() {
+
+
+    useEffect(() => {
+        console.log("MOUNT")
+    }, [])
+
+
     return (
         <>
+
 
             <div className='section-introduce'>
                 <div className='left-content' >
@@ -123,6 +135,16 @@ function Homepage() {
 
         </>
     );
+}
+
+let getUser = async () => {
+    const response = await axios.get("http://localhost:3001/api/get-user", {
+        params: {
+            id: "ALL"
+        }
+    })
+    // console.log(response.data.message.user)
+    return response
 }
 
 export default Homepage;

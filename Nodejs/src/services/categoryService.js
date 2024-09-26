@@ -137,11 +137,41 @@ let putCategory = (cateId) => {
             }
             return reject(message)
         }
+    })
+}
 
+let deleteCategory = (cateId) => {
+    return new Promise(async (resolve, reject) => {
+        let message = {}
+        try {
+            let cate = await db.Category.findOne({
+                where:
+                    { id: cateId }
+            })
+            if (!cate) {
+                message = {
+                    errCode: 1,
+                    errMessage: "Category doesnt exist!"
+                }
+            } else {
+                await cate.destroy()
+                message = {
+                    errCode: 0,
+                    errMessage: "Category destroyed!"
+                }
+            }
+            return resolve(message)
 
+        } catch (e) {
+            message = {
+                errCode: 10,
+                errMessage: e
+            }
+            return reject(message)
+        }
     })
 }
 
 module.exports = {
-    createNewCategory, getCategory, putCategory
+    createNewCategory, getCategory, putCategory, deleteCategory
 }

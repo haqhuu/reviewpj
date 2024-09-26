@@ -9,7 +9,8 @@ import Categorypage from './Categorypage.js';
 import Blogpage from "./Blogpage.js"
 import Login from "./Login.js"
 import { BrowserRouter, Route, Routes, Link } from 'react-router-dom';
-
+import axios from 'axios'
+import { StrictMode } from 'react';
 
 function App() {
   return (

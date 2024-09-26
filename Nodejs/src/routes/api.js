@@ -8,11 +8,12 @@ const router = express.Router()
 const initApi = (app) => {
     router.post(`/api/create-new-user`, userController.handleCreateUser)
     router.get(`/api/get-user`, userController.handleGetUser)
+    router.put(`/api/put-user`, userController.handlePutUser)
 
     router.post(`/api/create-category`, categoryController.handleCreateCategory)
     router.get(`/api/get-category`, categoryController.handleGetCategory)
     router.put(`/api/put-category`, categoryController.handlePutCategory)
-
+    router.delete(`/api/delete-category`, categoryController.handleDeleteCategory)
 
     return app.use('/', router)
 }

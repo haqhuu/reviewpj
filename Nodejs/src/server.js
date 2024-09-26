@@ -1,3 +1,5 @@
+const cors = require('cors')
+
 let bodyParser = require('body-parser')
 const initWebRoute = require('./routes/web.js')
 const initApi = require('./routes/api.js')
@@ -5,7 +7,7 @@ require('dotenv').config()
 
 const express = require('express')
 const app = express()
-
+app.use(cors())
 const port = process.env.PORT || 3001
 
 // parse application/x-www-form-urlencoded

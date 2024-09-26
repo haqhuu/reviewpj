@@ -72,11 +72,35 @@ let handlePutCategory = async (req, res) => {
             message
         })
     }
+}
 
+let handleDeleteCategory = async (req, res) => {
+
+    try {
+        let cateId = req.query.id
+        let message = {}
+        if (!cateId) {
+            message = {
+                errCode: 4,
+                errMessage: "Missing parameter!"
+            }
+        } else {
+            message = await categoryService.deleteCategory(cateId)
+        }
+        return res.status(200).json(message)
+
+    } catch (e) {
+        message = {
+            errCode: 15,
+            errMessage: e
+        }
+        return message
+    }
 }
 
 module.exports = {
     handleCreateCategory,
     handleGetCategory,
-    handlePutCategory
+    handlePutCategory,
+    handleDeleteCategory
 }

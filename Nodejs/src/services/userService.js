@@ -110,6 +110,47 @@ let getUser = (userId) => {
     })
 }
 
+let putUser = (userId) => {
+    return new Promise(async (resolve, reject) => {
+        let message = {}
+        try {
+
+            let user = await db.User.findOne(
+                {
+                    where: {
+                        id: userId
+                    },
+                    attributes: {
+                        exclude: ['password']
+                    }, raw: true
+                }
+            )
+            if (!user) {
+                message = {
+                    errCode: 1,
+                    errMessage: "User isn't exist!",
+                    user: {}
+                }
+            }
+            else {
+                message = {
+                    errCode: 0,
+                    errMessage: "User is here!",
+                    user: user
+                }
+            }
+            return resolve(message)
+        } catch (e) {
+            message = {
+                errCode: 10,
+                errMessage: e,
+                user: {}
+            }
+            return reject(message)
+        }
+    })
+}
+
 module.exports = {
-    createNewUser, getUser
+    createNewUser, getUser, putUser
 }
