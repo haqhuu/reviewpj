@@ -65,25 +65,22 @@ function Homepage() {
             <div className='section-cate1'>
                 <span className='cate'>Explore categories</span>
                 <button className='view-cate'>View All</button>
-
                 <div className='section-cate2'>
                     {
                         state.cates.map((item, index) => {
                             if (index < 12)
                                 return (
                                     <div className='cate-item'>
-                                        <span className='cate-icon' key={index}>{(item) ? item.name : ""}</span>
+                                        {/* <span className='cate-icon' key={index}>{(item) ? item.name : ""}</span> */}
+                                        <img className='cate-icon' src="./pet.png"></img>
                                         <span className='cate-name' kety={index}>{(item) ? item.name : ""}</span>
                                     </div>
                                 )
                         })
                     }
-
-
                 </div>
             </div>
             {/* end section cate */}
-
 
             <div className='section-review'>
                 <span className='recent-review'>Recent Review</span>
