@@ -1,11 +1,13 @@
 **This project was inspirated by "Trustpilot reviews" website, https://www.trustpilot.com/**
+<br/>
 Tech:
+<br/>
 - SQL
 - Express
 - ReactJS
 - NodeJS
 
-* Future Features: *
+ **Future Features:**
 - Create user account with email, facebook
 - Sign In with email, facebook
 - Divide pages
@@ -14,10 +16,10 @@ Tech:
 - Real time post
 - Bot service chat
 
-* Entity Relationship Diagram : *
+*Entity Relationship Diagram:**
 ![alt text](image.png)
-a quick view ERD
+--a quick view ERD
 
-* UI Design:*
-Homepage
+*UI Design:**
+Homepage--
 ![alt text](image-1.png)
