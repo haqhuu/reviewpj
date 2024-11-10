@@ -22,6 +22,6 @@
 <br/>
 **UI Design:**
 <br/>
-- Homepage
+Homepage
 <br/>
 ![alt text](image-1.png)
