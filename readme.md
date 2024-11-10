@@ -1,6 +1,6 @@
 **This project was inspirated by "Trustpilot reviews" website, https://www.trustpilot.com/**
 <br/>
-Tech:
+**Technology usesing:**
 <br/>
 - SQL
 - Express
@@ -16,10 +16,10 @@ Tech:
 - Real time post
 - Bot service chat
 
-*Entity Relationship Diagram:**
+**Entity Relationship Diagram:**
 ![alt text](image.png)
---a quick view ERD
+a quick view ERD
 
-*UI Design:**
-Homepage--
+**UI Design:**
+Homepage
 ![alt text](image-1.png)
