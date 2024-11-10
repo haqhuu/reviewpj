@@ -17,9 +17,11 @@
 - Bot service chat
 
 **Entity Relationship Diagram:**
+<br/>
 ![alt text](image.png)
-a quick view ERD
-
+<br/>
 **UI Design:**
+<br/>
 Homepage
+<br/>
 ![alt text](image-1.png)
