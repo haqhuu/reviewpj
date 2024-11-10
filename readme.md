@@ -1,6 +1,6 @@
 **This project was inspirated by "Trustpilot reviews" website, https://www.trustpilot.com/**
 <br/>
-**Technology usesing:**
+**Technology using:**
 <br/>
 - SQL
 - Express
@@ -22,6 +22,6 @@
 <br/>
 **UI Design:**
 <br/>
-Homepage
+- Homepage
 <br/>
 ![alt text](image-1.png)
